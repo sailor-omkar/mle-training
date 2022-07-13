@@ -1,0 +1,8 @@
+[tool.black]
+line-length = 20
+target-version = ['py37']
+include = '\.pyi?$'
+[tool.isort]
+# make it compatible with black
+profile = "black"
+
