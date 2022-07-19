@@ -1,3 +1,13 @@
+Metadata-Version: 2.1
+Name: mletraining
+Version: 0.1
+Summary: Practical Python Code
+Author: Omkar Chavan
+Author-email: omkar.chavan@tigeranalytics.com
+License: MIT
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+
 # Median housing value prediction
 
 The housing data can be downloaded from https://raw.githubusercontent.com/ageron/handson-ml/master/. The script has codes to download the data. We have modelled the median house value on given housing data.
@@ -21,4 +31,6 @@ The following techniques have been used:
 4. Now create new features, execute **create_features.py** stored in **data_scripts** module.
 5. To select best model train models over the data using **train.py** stored in **model_training_scripts** module.
 6. Now predict using best models over the data using **score.py** stored in **model_scoring_scripts** module.
+
+
 

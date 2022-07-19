@@ -1,0 +1,97 @@
+2022-07-18 16:12:23,667 DEBUG - initialising trainer object.
+2022-07-18 16:12:23,667 DEBUG - training linear regression model.
+2022-07-18 16:12:23,685 DEBUG - making predictions.
+2022-07-18 16:12:23,692 DEBUG - mean square error.
+2022-07-18 16:12:23,693 DEBUG - storing model in a pickle file.
+2022-07-18 16:12:23,697 DEBUG - training decision tree regression model.
+2022-07-18 16:12:23,971 DEBUG - predicting from decision tree regression model.
+2022-07-18 16:12:23,982 DEBUG - initialising random forest model.
+2022-07-18 16:12:23,982 DEBUG - initialising random search cv.
+2022-07-18 16:12:23,982 DEBUG - fitting random forest tree on the training data.
+2022-07-18 16:15:07,676 DEBUG - predicting from model.
+2022-07-18 16:15:08,364 DEBUG - storing the random forest model in a pickle.
+2022-07-18 16:15:08,375 DEBUG - initialising random forest regressor model.
+2022-07-18 16:15:08,375 DEBUG - initialising grid search cv.
+2022-07-18 16:15:08,375 DEBUG - fitting grid search cv.
+2022-07-18 16:15:55,880 DEBUG - predicting from model.
+2022-07-18 16:15:56,007 DEBUG - storing model as a pickle.
+2022-07-18 16:20:42,738 DEBUG - initialising trainer object.
+2022-07-18 16:20:42,738 DEBUG - training linear regression model.
+2022-07-18 16:20:42,752 DEBUG - making predictions.
+2022-07-18 16:20:42,755 DEBUG - mean square error.
+2022-07-18 16:20:42,756 DEBUG - storing model in a pickle file.
+2022-07-18 16:20:42,760 DEBUG - training decision tree regression model.
+2022-07-18 16:20:43,039 DEBUG - predicting from decision tree regression model.
+2022-07-18 16:20:43,051 DEBUG - initialising random forest model.
+2022-07-18 16:20:43,051 DEBUG - initialising random search cv.
+2022-07-18 16:20:43,051 DEBUG - fitting random forest tree on the training data.
+2022-07-18 18:47:51,312 DEBUG - initialising trainer object.
+2022-07-18 18:47:51,312 DEBUG - training linear regression model.
+2022-07-18 18:47:51,329 DEBUG - making predictions.
+2022-07-18 18:47:51,340 DEBUG - mean square error.
+2022-07-18 18:47:51,341 DEBUG - storing model in a pickle file.
+2022-07-18 18:47:51,386 DEBUG - training decision tree regression model.
+2022-07-18 18:47:51,678 DEBUG - predicting from decision tree regression model.
+2022-07-18 18:47:51,701 DEBUG - initialising random forest model.
+2022-07-18 18:47:51,701 DEBUG - initialising random search cv.
+2022-07-18 18:47:51,701 DEBUG - fitting random forest tree on the training data.
+2022-07-18 18:50:42,307 DEBUG - predicting from model.
+2022-07-18 18:50:43,114 DEBUG - storing the random forest model in a pickle.
+2022-07-18 18:50:43,143 DEBUG - initialising random forest regressor model.
+2022-07-18 18:50:43,144 DEBUG - initialising grid search cv.
+2022-07-18 18:50:43,144 DEBUG - fitting grid search cv.
+2022-07-18 18:51:31,574 DEBUG - predicting from model.
+2022-07-18 18:51:31,688 DEBUG - storing model as a pickle.
+2022-07-18 18:51:31,693 DEBUG - saving best model.
+2022-07-18 19:02:25,627 DEBUG - initialising trainer object.
+2022-07-18 19:02:25,628 DEBUG - training linear regression model.
+2022-07-18 19:02:25,641 DEBUG - making predictions.
+2022-07-18 19:02:25,652 DEBUG - mean square error.
+2022-07-18 19:02:25,653 DEBUG - storing model in a pickle file.
+2022-07-18 19:02:25,659 DEBUG - training decision tree regression model.
+2022-07-18 19:02:25,934 DEBUG - predicting from decision tree regression model.
+2022-07-18 19:02:25,946 DEBUG - initialising random forest model.
+2022-07-18 19:02:25,946 DEBUG - initialising random search cv.
+2022-07-18 19:02:25,946 DEBUG - fitting random forest tree on the training data.
+2022-07-18 19:04:54,257 DEBUG - predicting from model.
+2022-07-18 19:04:54,967 DEBUG - storing the random forest model in a pickle.
+2022-07-18 19:04:54,975 DEBUG - initialising random forest regressor model.
+2022-07-18 19:04:54,975 DEBUG - initialising grid search cv.
+2022-07-18 19:04:54,975 DEBUG - fitting grid search cv.
+2022-07-18 19:05:40,167 DEBUG - predicting from model.
+2022-07-18 19:05:40,294 DEBUG - storing model as a pickle.
+2022-07-18 19:05:40,298 DEBUG - saving best model.
+2022-07-18 19:18:36,197 DEBUG - initialising trainer object.
+2022-07-18 19:18:36,197 DEBUG - training linear regression model.
+2022-07-18 19:18:36,210 DEBUG - making predictions.
+2022-07-18 19:18:36,220 DEBUG - mean square error.
+2022-07-18 19:18:36,221 DEBUG - storing model in a pickle file.
+2022-07-18 19:18:36,222 DEBUG - training decision tree regression model.
+2022-07-18 19:18:36,504 DEBUG - predicting from decision tree regression model.
+2022-07-18 19:18:36,515 DEBUG - initialising random forest model.
+2022-07-18 19:18:36,515 DEBUG - initialising random search cv.
+2022-07-18 19:18:36,516 DEBUG - fitting random forest tree on the training data.
+2022-07-18 19:19:59,489 DEBUG - initialising trainer object.
+2022-07-18 19:19:59,489 DEBUG - training linear regression model.
+2022-07-18 19:19:59,503 DEBUG - making predictions.
+2022-07-18 19:19:59,515 DEBUG - mean square error.
+2022-07-18 19:19:59,515 DEBUG - storing model in a pickle file.
+2022-07-18 19:19:59,516 DEBUG - training decision tree regression model.
+2022-07-18 19:19:59,856 DEBUG - predicting from decision tree regression model.
+2022-07-18 19:19:59,865 DEBUG - saving best model.
+2022-07-18 19:27:29,700 DEBUG - initialising trainer object.
+2022-07-18 19:27:29,700 DEBUG - training linear regression model.
+2022-07-18 19:27:29,720 DEBUG - making predictions.
+2022-07-18 19:27:29,724 DEBUG - mean square error.
+2022-07-18 19:27:29,725 DEBUG - storing model in a pickle file.
+2022-07-18 19:27:29,726 DEBUG - training decision tree regression model.
+2022-07-18 19:27:29,997 DEBUG - predicting from decision tree regression model.
+2022-07-18 19:27:30,006 DEBUG - saving best model.
+2022-07-18 21:38:30,927 DEBUG - initialising trainer object.
+2022-07-18 21:38:30,927 DEBUG - training linear regression model.
+2022-07-18 21:38:30,951 DEBUG - making predictions.
+2022-07-18 21:38:30,953 DEBUG - mean square error.
+2022-07-18 21:38:30,954 DEBUG - storing model in a pickle file.
+2022-07-18 21:38:30,955 DEBUG - training decision tree regression model.
+2022-07-18 21:38:31,293 DEBUG - predicting from decision tree regression model.
+2022-07-18 21:38:31,308 DEBUG - saving best model.
