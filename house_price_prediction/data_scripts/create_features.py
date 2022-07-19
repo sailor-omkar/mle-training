@@ -6,11 +6,18 @@ import sys
 from pathlib import Path
 from pprint import pprint
 
-import pandas as pd
 import house_price_prediction.utility_scripts.utils as ut
+import numpy as np
+import pandas as pd
+
+# import house_price_prediction.utility_scripts.log_config as lc
 from house_price_prediction.utility_scripts.log_config import generate_logger
 from pip import main
+from sklearn.base import BaseEstimator, TransformerMixin
+from sklearn.compose import ColumnTransformer
 from sklearn.impute import SimpleImputer
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
 FILE_PATH = Path(__file__)
 PROJECT_DIR = FILE_PATH.resolve().parents[2]
@@ -18,10 +25,73 @@ ARTIFACTS_DIR = os.path.join(PROJECT_DIR, "artifacts")
 DATA_DIR = os.path.join(PROJECT_DIR, "datasets")
 
 
+class CombinedAttributesAdder(BaseEstimator, TransformerMixin):
+    def __init__(self, add_bedrooms_per_room=True):
+        self.add_bedrooms_per_room = add_bedrooms_per_room
+
+    def fit(self, X, y=None):
+        return self  # nothing else to do
+
+    def transform(self, X):
+        rooms_ix, bedrooms_ix, population_ix, households_ix = 3, 4, 5, 6
+        rooms_per_household = X[:, rooms_ix] / X[:, households_ix]
+        population_per_household = X[:, population_ix] / X[:, households_ix]
+        if self.add_bedrooms_per_room:
+            bedrooms_per_room = X[:, bedrooms_ix] / X[:, rooms_ix]
+            return np.c_[
+                X, rooms_per_household, population_per_household, bedrooms_per_room
+            ]
+        else:
+            return np.c_[X, rooms_per_household, population_per_household]
+
+
+class ProcessPipeline:
+
+    def __init__(self) -> None:
+        pass
+
+    def process_data(
+                        self,
+                        data,
+                        label,
+                        cat_attribs,
+                        num_attribs,
+                        new_features):
+
+        data_x = data.drop([label], axis=1)
+
+        num_pipeline = Pipeline(
+            [
+                ("imputer", SimpleImputer(strategy="median")),
+                ("attribs_adder", CombinedAttributesAdder()),
+                ("std_scaler", StandardScaler()),
+            ]
+        )
+        onehot = OneHotEncoder(handle_unknown="ignore")
+        col_transformers = ColumnTransformer(
+            [("num", num_pipeline, num_attribs), ("cat", onehot, [cat_attribs])]
+        )
+        clf = Pipeline(steps=[("preprocessor", col_transformers)])
+        train_x_prepared = clf.fit_transform(data_x)
+        categorical_columns = (
+            clf.named_steps["preprocessor"]
+            .transformers_[1][1]
+            .get_feature_names([cat_attribs])
+        )
+
+        num_attribs.extend(new_features)
+
+        num_attribs.extend(categorical_columns)
+
+        train_prepared = pd.DataFrame(train_x_prepared, columns=num_attribs)
+        train_prepared[label] = data[label]
+
+        return train_prepared
+
+
 class Imputer:
     def __init__(self) -> None:
-        """function to initialize the object.
-        """
+        """function to initialize the object."""
         pass
 
     def fit_imputer(self, data, imputer_path, imputer_name, logger):
@@ -34,17 +104,15 @@ class Imputer:
             imputer_name (str): file name of imputer.
             logger (_type_): logging object.
         """
-        logger.debug('fitting the imputer over the data.')
+        logger.debug("fitting the imputer over the data.")
         imputer = SimpleImputer(strategy="median")
         imputer.fit(data)
 
         if not os.path.exists(imputer_path):
             os.makedirs(imputer_path)
 
-        pickle.dump(imputer, open(
-                                    os.path.join(imputer_path, imputer_name),
-                                    "wb"))
-        logger.debug('successfully created an imputer.')
+        pickle.dump(imputer, open(os.path.join(imputer_path, imputer_name), "wb"))
+        logger.debug("successfully created an imputer.")
 
     def impute_numeric_values(self, data, imputer_obj, logger):
         """
@@ -58,7 +126,7 @@ class Imputer:
             _type_: numpy array of imputed data.
         """
 
-        logger.debug('imputing the numerical data.')
+        logger.debug("imputing the numerical data.")
         if isinstance(imputer_obj, SimpleImputer):
             transformed_data = imputer_obj.transform(data)
             return transformed_data
@@ -72,13 +140,8 @@ class FetureEngineer:
         pass
 
     def create_binning_feature(
-                                self,
-                                data,
-                                ref_feature,
-                                new_feature,
-                                bins,
-                                labels,
-                                logger):
+        self, data, ref_feature, new_feature, bins, labels, logger
+    ):
         """
         function to add new labels by using
         binning technique on basis of a feature.
@@ -95,14 +158,11 @@ class FetureEngineer:
             _type_: pandas dataframe with new feature.
         """
         try:
-            data[new_feature] = pd.cut(
-                                        data[ref_feature],
-                                        bins=bins,
-                                        labels=labels)
+            data[new_feature] = pd.cut(data[ref_feature], bins=bins, labels=labels)
         except Exception:
-            logger.error('Error while creating bins.')
+            logger.error("Error while creating bins.")
 
-        logger.debug('Successfully created binning feature.')
+        logger.debug("Successfully created binning feature.")
         return data
 
     def get_proportions(self, data, label, logger):
@@ -118,7 +178,7 @@ class FetureEngineer:
         Returns:
             _type_: proportion of a label in whole data.
         """
-        logger.debug('calculating the proportion.')
+        logger.debug("calculating the proportion.")
         return data[label].value_counts() / len(data)
 
     def calculate_ratios(self, data, new_var, numerator, denominator, logger):
@@ -136,7 +196,7 @@ class FetureEngineer:
             _type_: pandas dataframe.
         """
 
-        logger.debug('calculating the ratio.')
+        logger.debug("calculating the ratio.")
         data[new_var] = data[numerator] / data[denominator]
 
         return data
@@ -155,10 +215,7 @@ if __name__ == "__main__":
     )
 
     parser.add_argument(
-        "-f",
-        "--file_name",
-        help=" Provide a file name.",
-        default="train.csv"
+        "-f", "--file_name", help=" Provide a file name.", default="train.csv"
     )
 
     args = parser.parse_args()
@@ -170,38 +227,25 @@ if __name__ == "__main__":
     data = utility.load_project_data(
                                         data_path=args.data_path,
                                         file_name=args.file_name)
-    numeric_data = data.drop(["ocean_proximity", "median_house_value"], axis=1)
 
-    imputer = Imputer()
-    imputer_name = "numeric_imputer.pickle"
-    artifact_path = os.path.join(ARTIFACTS_DIR)
-    imputer.fit_imputer(numeric_data, artifact_path, imputer_name, logger)
-    imputer_obj = utility.load_pickle(artifact_path, imputer_name)
-    imputed_data = imputer.impute_numeric_values(
-                                                numeric_data,
-                                                imputer_obj,
-                                                logger)
+    num_attribs = list(data)
+    num_attribs.remove("ocean_proximity")
+    num_attribs.remove("median_house_value")
+    cat_attribs = "ocean_proximity"
 
-    data_tr = pd.DataFrame(
-                            imputed_data,
-                            columns=numeric_data.columns,
-                            index=data.index)
-
-    data_tr['median_house_value'] = data['median_house_value']
-
-    vals = [
-        ["rooms_per_household", "total_rooms", "households"],
-        ["bedrooms_per_room", "total_bedrooms", "total_rooms"],
-        ["population_per_household", "population", "households"],
+    new_features = [
+        "rooms_per_household",
+        "bedrooms_per_room",
+        "population_per_household",
     ]
 
-    for val in vals:
-        data_tr = feature_engineer.calculate_ratios(
-            data=data_tr, new_var=val[0], numerator=val[1], denominator=val[2],
-            logger=logger
-        )
+    proc_pipe = ProcessPipeline()
+    train_prepared = proc_pipe.process_data(
+                                            data=data,
+                                            label='median_house_value',
+                                            cat_attribs=cat_attribs,
+                                            num_attribs=num_attribs,
+                                            new_features=new_features
+                                        )
 
-    data_cat = data[["ocean_proximity"]]
-    data_prepared = data_tr.join(pd.get_dummies(data_cat, drop_first=True))
-
-    utility.store_dataframe(data_prepared, args.data_path, "train.csv")
+    utility.store_dataframe(train_prepared, args.data_path, "train.csv")

@@ -76,44 +76,33 @@ if __name__ == "__main__":
     model = ScoreModels()
     args = parser.parse_args()
     utility = Utils()
-    test_data = utility.load_project_data(
+    data = utility.load_project_data(
         os.path.join(DATA_DIR, "processed"), args.file_name
     )
 
-    X_test = test_data.drop("median_house_value", axis=1)
-    y_test = test_data["median_house_value"].copy()
-    X_test_num = X_test.drop("ocean_proximity", axis=1)
+    X_test = data.drop("median_house_value", axis=1)
+    y_test = data["median_house_value"].copy()
+    num_attribs = list(data)
+    num_attribs.remove("ocean_proximity")
+    num_attribs.remove("median_house_value")
+    cat_attribs = "ocean_proximity"
 
-    imputer_obj = cf.Imputer()
-
-    imputer_name = "numeric_imputer.pickle"
-    artifact_path = os.path.join(ARTIFACTS_DIR)
-    imputer_model = utility.load_pickle(artifact_path, imputer_name)
-    imputed_data = imputer_obj.impute_numeric_values(X_test_num, imputer_model, logger)
-
-    data_tr = pd.DataFrame(
-        imputed_data, columns=X_test_num.columns, index=test_data.index
-    )
-
-    vals = [
-        ["rooms_per_household", "total_rooms", "households"],
-        ["bedrooms_per_room", "total_bedrooms", "total_rooms"],
-        ["population_per_household", "population", "households"],
+    new_features = [
+        "rooms_per_household",
+        "bedrooms_per_room",
+        "population_per_household",
     ]
 
-    feature_engineer = cf.FetureEngineer()
+    proc_pipe = cf.ProcessPipeline()
+    X_test_processed = proc_pipe.process_data(
+        data=data,
+        label="median_house_value",
+        cat_attribs=cat_attribs,
+        num_attribs=num_attribs,
+        new_features=new_features,
+    )
 
-    for val in vals:
-        data_tr = feature_engineer.calculate_ratios(
-            data=data_tr,
-            new_var=val[0],
-            numerator=val[1],
-            denominator=val[2],
-            logger=logger,
-        )
-
-    data_cat = test_data[["ocean_proximity"]]
-    X_test_processed = data_tr.join(pd.get_dummies(data_cat, drop_first=True))
+    X_test_processed = X_test_processed.drop(["median_house_value"], axis=1)
     final_predictions = model.model_predict(
         X_test_processed, args.model_path, args.model_name
     )
