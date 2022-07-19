@@ -1,0 +1,47 @@
+2022-07-18 13:05:44,446 DEBUG - Entered the fetch data function
+2022-07-18 13:05:44,461 ERROR - Error while extracting data
+2022-07-18 13:05:44,461 DEBUG - Successfully downloaded raw data
+2022-07-18 13:06:28,535 DEBUG - Entered the fetch data function
+2022-07-18 13:06:28,549 ERROR - Error while extracting data
+2022-07-18 13:06:28,549 DEBUG - Successfully downloaded raw data
+2022-07-18 13:07:53,193 DEBUG - Entered the fetch data function
+2022-07-18 13:07:53,207 ERROR - Error while extracting data
+2022-07-18 13:08:21,119 DEBUG - Entered the fetch data function
+2022-07-18 13:08:21,132 ERROR - Error while extracting data
+2022-07-18 13:18:03,268 DEBUG - Entered the fetch data function
+2022-07-18 13:18:03,285 ERROR - Error while extracting data
+2022-07-18 13:18:03,285 DEBUG - Entered the fetch data function
+2022-07-18 13:18:03,948 DEBUG - Successfully downloaded raw data
+2022-07-18 13:18:14,012 DEBUG - Entered the fetch data function
+2022-07-18 13:18:14,026 ERROR - Error while extracting data
+2022-07-18 13:18:14,026 DEBUG - Entered the fetch data function
+2022-07-18 13:18:14,107 DEBUG - Successfully downloaded raw data
+2022-07-18 13:19:49,998 DEBUG - Entered the fetch data function
+2022-07-18 13:19:50,011 ERROR - Error while extracting data
+2022-07-18 13:19:50,011 DEBUG - Entered the fetch data function
+2022-07-18 13:19:50,110 DEBUG - Successfully downloaded raw data
+2022-07-18 13:20:20,504 DEBUG - Entered the fetch data function
+2022-07-18 13:20:20,516 ERROR - Error while extracting data
+2022-07-18 13:20:20,516 DEBUG - Entered the fetch data function
+2022-07-18 13:20:20,578 DEBUG - Successfully downloaded raw data
+2022-07-18 14:36:20,429 DEBUG - fitting the imputer over the data.
+2022-07-18 14:36:20,447 DEBUG - successfully created an imputer.
+2022-07-18 14:37:24,492 DEBUG - fitting the imputer over the data.
+2022-07-18 14:37:24,510 DEBUG - successfully created an imputer.
+2022-07-18 14:37:24,511 DEBUG - imputing the numerical data.
+2022-07-18 14:38:23,172 DEBUG - fitting the imputer over the data.
+2022-07-18 14:38:23,189 DEBUG - successfully created an imputer.
+2022-07-18 14:38:23,189 DEBUG - imputing the numerical data.
+2022-07-18 14:38:23,193 DEBUG - calculating the ratio.
+2022-07-18 14:38:23,194 DEBUG - calculating the ratio.
+2022-07-18 14:38:23,194 DEBUG - calculating the ratio.
+2022-07-18 14:44:00,297 DEBUG - Entered the fetch data function
+2022-07-18 14:44:00,774 DEBUG - Successfully downloaded raw data
+2022-07-18 18:45:43,254 DEBUG - Entered the fetch data function
+2022-07-18 18:45:44,077 DEBUG - Successfully downloaded raw data
+2022-07-18 18:56:01,942 DEBUG - Entered the fetch data function
+2022-07-18 18:56:02,487 DEBUG - Successfully downloaded raw data
+2022-07-18 19:01:49,824 DEBUG - Entered the fetch data function
+2022-07-18 19:01:50,338 DEBUG - Successfully downloaded raw data
+2022-07-18 21:32:29,731 DEBUG - Entered the fetch data function
+2022-07-18 21:32:30,297 DEBUG - Successfully downloaded raw data
