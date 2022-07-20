@@ -7,10 +7,9 @@ from pathlib import Path
 from pprint import pprint
 
 import house_price_prediction.utility_scripts.utils as ut
+import mlflow
 import numpy as np
 import pandas as pd
-
-# import house_price_prediction.utility_scripts.log_config as lc
 from house_price_prediction.utility_scripts.log_config import generate_logger
 from pip import main
 from sklearn.base import BaseEstimator, TransformerMixin
@@ -46,46 +45,52 @@ class CombinedAttributesAdder(BaseEstimator, TransformerMixin):
 
 
 class ProcessPipeline:
-
     def __init__(self) -> None:
         pass
 
-    def process_data(
-                        self,
-                        data,
-                        label,
-                        cat_attribs,
-                        num_attribs,
-                        new_features):
+    def process_data(self, data, label, cat_attribs, num_attribs, new_features):
 
         data_x = data.drop([label], axis=1)
+        with mlflow.start_run(run_name='CREATE_FEATURE', nested=True) as create_feature_run:
+            mlflow.log_param("child", "yes")
+            imputer = SimpleImputer(strategy="median")
+            attr_adder = CombinedAttributesAdder()
+            std_scaler = StandardScaler()
+            num_pipeline = Pipeline(
+                [
+                    ("imputer", imputer),
+                    ("attribs_adder", attr_adder),
+                    ("std_scaler", std_scaler),
+                ]
+            )
 
-        num_pipeline = Pipeline(
-            [
-                ("imputer", SimpleImputer(strategy="median")),
-                ("attribs_adder", CombinedAttributesAdder()),
-                ("std_scaler", StandardScaler()),
-            ]
-        )
-        onehot = OneHotEncoder(handle_unknown="ignore")
-        col_transformers = ColumnTransformer(
-            [("num", num_pipeline, num_attribs), ("cat", onehot, [cat_attribs])]
-        )
-        clf = Pipeline(steps=[("preprocessor", col_transformers)])
-        train_x_prepared = clf.fit_transform(data_x)
-        categorical_columns = (
-            clf.named_steps["preprocessor"]
-            .transformers_[1][1]
-            .get_feature_names([cat_attribs])
-        )
+            onehot = OneHotEncoder(handle_unknown="ignore")
+            col_transformers = ColumnTransformer(
+                [
+                    ("num", num_pipeline, num_attribs),
+                    ("cat", onehot, [cat_attribs])]
+            )
 
-        num_attribs.extend(new_features)
+            clf = Pipeline(steps=[("preprocessor", col_transformers)])
+            train_x_prepared = clf.fit_transform(data_x)
+            categorical_columns = (
+                clf.named_steps["preprocessor"]
+                .transformers_[1][1]
+                .get_feature_names([cat_attribs])
+            )
 
-        num_attribs.extend(categorical_columns)
+            num_attribs.extend(new_features)
 
-        train_prepared = pd.DataFrame(train_x_prepared, columns=num_attribs)
-        train_prepared[label] = data[label]
+            num_attribs.extend(categorical_columns)
 
+            train_prepared = pd.DataFrame(
+                                            train_x_prepared,
+                                            columns=num_attribs)
+            train_prepared[label] = data[label]
+
+            mlflow.log_param(key="imputing_strategy", value="median")
+            mlflow.sklearn.log_model(imputer, "imputer")
+            mlflow.sklearn.log_model(onehot, "onehot_encoder")
         return train_prepared
 
 
@@ -202,7 +207,7 @@ class FetureEngineer:
         return data
 
 
-if __name__ == "__main__":
+def main():
 
     logger = generate_logger("data_scripts", "create_feature.log")
     parser = argparse.ArgumentParser(description="To create new features")
@@ -228,7 +233,7 @@ if __name__ == "__main__":
                                         data_path=args.data_path,
                                         file_name=args.file_name)
 
-    num_attribs = list(data)
+    num_attribs = list(data.columns)
     num_attribs.remove("ocean_proximity")
     num_attribs.remove("median_house_value")
     cat_attribs = "ocean_proximity"
@@ -241,11 +246,14 @@ if __name__ == "__main__":
 
     proc_pipe = ProcessPipeline()
     train_prepared = proc_pipe.process_data(
-                                            data=data,
-                                            label='median_house_value',
-                                            cat_attribs=cat_attribs,
-                                            num_attribs=num_attribs,
-                                            new_features=new_features
-                                        )
+        data=data,
+        label="median_house_value",
+        cat_attribs=cat_attribs,
+        num_attribs=num_attribs,
+        new_features=new_features,
+    )
 
     utility.store_dataframe(train_prepared, args.data_path, "train.csv")
+
+if __name__ == "__main__":
+    main()

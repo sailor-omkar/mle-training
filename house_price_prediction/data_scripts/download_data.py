@@ -5,6 +5,8 @@ import sys
 import tarfile
 from pathlib import Path
 
+import mlflow
+import mlflow.sklearn
 from house_price_prediction.utility_scripts.log_config import generate_logger
 from six.moves import urllib
 

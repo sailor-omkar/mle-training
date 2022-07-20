@@ -8,6 +8,7 @@ from pprint import pprint
 
 import house_price_prediction.data_scripts.create_features as cf
 import house_price_prediction.utility_scripts.utils as ut
+import mlflow
 import numpy as np
 import pandas as pd
 from house_price_prediction.utility_scripts.log_config import generate_logger
@@ -96,17 +97,24 @@ class SplitData:
 
         logger.debug('performing stratified train test split')
 
-        split = StratifiedShuffleSplit(
-            n_splits=n_splits,
-            test_size=test_size,
-            random_state=random_state)
+        with mlflow.start_run(run_name='DATA_SPLIT', nested=True) as data_split_run:
+            mlflow.log_param("child", "yes")
+            split = StratifiedShuffleSplit(
+                n_splits=n_splits,
+                test_size=test_size,
+                random_state=random_state)
 
-        for train_index, test_index in split.split(
-                                                    self.data,
-                                                    self.data[label]):
+            for train_index, test_index in split.split(
+                                                        self.data,
+                                                        self.data[label]):
 
-            self.strat_train_set = self.data.loc[train_index]
-            self.strat_test_set = self.data.loc[test_index]
+                self.strat_train_set = self.data.loc[train_index]
+                self.strat_test_set = self.data.loc[test_index]
+
+            mlflow.log_param(key="n_splits", value=n_splits)
+            mlflow.log_param(key="test_size", value=test_size)
+            mlflow.log_param(key="split_random_state", value=random_state)
+            mlflow.sklearn.log_model(split, "stratified_splitter")
 
     def compare_splits(self, label, logger):
         """
@@ -191,12 +199,12 @@ class SplitData:
         return True
 
 
-if __name__ == "__main__":
+def main():
 
     logger = generate_logger("data_scripts", "split.log")
 
     parser = argparse.ArgumentParser(
-        description="To compare data " "splitting strategies"
+        description="To compare data splitting strategies"
     )
 
     parser.add_argument(
@@ -262,3 +270,6 @@ if __name__ == "__main__":
     data_splitter.save_split_data(
                                     data_path=args.output_folder,
                                     logger=logger)
+
+if __name__ == "__main__":
+    main()
