@@ -21,4 +21,4 @@ The following techniques have been used:
 4. Now create new features, execute **create_features.py** stored in **data_scripts** module.
 5. To select best model train models over the data using **train.py** stored in **model_training_scripts** module.
 6. Now predict using best models over the data using **score.py** stored in **model_scoring_scripts** module.
-
+7. One can run **ml_flow_script.py**, to track the experiments.

@@ -11,7 +11,7 @@ with open(path.join(HERE, "README.md"), encoding="utf-8") as f:
 
 setuptools.setup(
     name="mletraining",
-    version="0.3",
+    version="0.4",
     author="Omkar Chavan",
     author_email="omkar.chavan@tigeranalytics.com",
     long_description=long_description,
