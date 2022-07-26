@@ -1,0 +1,7 @@
+*.pyc
+*.csv
+*.pickle
+*.tgz
+*.log
+*.yml
+*.txt
