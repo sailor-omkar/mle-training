@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  web:
+    image: "tigeromkar/houseprice:latest"
+    ports:
+      - "8080:8080"
+    volumes:
+      - /home/omkar/mle_training_omkar/artifacts:/app/artifacts
+      - /home/omkar/mle_training_omkar/datasets:/app/datasets
+      - /home/omkar/mle_training_omkar/logs:/app/logs
