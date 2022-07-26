@@ -1,0 +1,289 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>house_price_prediction.data_scripts package &#8212; housing_price_prediction 0.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="house-price-prediction-data-scripts-package">
+<h1>house_price_prediction.data_scripts package<a class="headerlink" href="#house-price-prediction-data-scripts-package" title="Permalink to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="module-house_price_prediction.data_scripts.create_features">
+<span id="house-price-prediction-data-scripts-create-features-module"></span><h2>house_price_prediction.data_scripts.create_features module<a class="headerlink" href="#module-house_price_prediction.data_scripts.create_features" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="house_price_prediction.data_scripts.create_features.FetureEngineer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">house_price_prediction.data_scripts.create_features.</span></span><span class="sig-name descname"><span class="pre">FetureEngineer</span></span><a class="headerlink" href="#house_price_prediction.data_scripts.create_features.FetureEngineer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="house_price_prediction.data_scripts.create_features.FetureEngineer.calculate_ratios">
+<span class="sig-name descname"><span class="pre">calculate_ratios</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_var</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numerator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">denominator</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#house_price_prediction.data_scripts.create_features.FetureEngineer.calculate_ratios" title="Permalink to this definition">¶</a></dt>
+<dd><p>function which calculates ratios between features</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="house_price_prediction.data_scripts.create_features.FetureEngineer.create_binning_feature">
+<span class="sig-name descname"><span class="pre">create_binning_feature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_feature</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_feature</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#house_price_prediction.data_scripts.create_features.FetureEngineer.create_binning_feature" title="Permalink to this definition">¶</a></dt>
+<dd><p>function to add new labels by using
+binning technique on basis of a feature.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="house_price_prediction.data_scripts.create_features.FetureEngineer.get_proportions">
+<span class="sig-name descname"><span class="pre">get_proportions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#house_price_prediction.data_scripts.create_features.FetureEngineer.get_proportions" title="Permalink to this definition">¶</a></dt>
+<dd><p>function which returns proportion of each label
+category.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="house_price_prediction.data_scripts.create_features.Imputer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">house_price_prediction.data_scripts.create_features.</span></span><span class="sig-name descname"><span class="pre">Imputer</span></span><a class="headerlink" href="#house_price_prediction.data_scripts.create_features.Imputer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="house_price_prediction.data_scripts.create_features.Imputer.fit_imputer">
+<span class="sig-name descname"><span class="pre">fit_imputer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">imputer_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">imputer_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#house_price_prediction.data_scripts.create_features.Imputer.fit_imputer" title="Permalink to this definition">¶</a></dt>
+<dd><p>function to fit imputer</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="house_price_prediction.data_scripts.create_features.Imputer.impute_numeric_values">
+<span class="sig-name descname"><span class="pre">impute_numeric_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">imputer_obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#house_price_prediction.data_scripts.create_features.Imputer.impute_numeric_values" title="Permalink to this definition">¶</a></dt>
+<dd><p>function to impute numeric values.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-house_price_prediction.data_scripts.download_data">
+<span id="house-price-prediction-data-scripts-download-data-module"></span><h2>house_price_prediction.data_scripts.download_data module<a class="headerlink" href="#module-house_price_prediction.data_scripts.download_data" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="house_price_prediction.data_scripts.download_data.Data">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">house_price_prediction.data_scripts.download_data.</span></span><span class="sig-name descname"><span class="pre">Data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_url</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#house_price_prediction.data_scripts.download_data.Data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="house_price_prediction.data_scripts.download_data.Data.data_folder_name">
+<span class="sig-name descname"><span class="pre">data_folder_name</span></span><a class="headerlink" href="#house_price_prediction.data_scripts.download_data.Data.data_folder_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="house_price_prediction.data_scripts.download_data.Data.data_url">
+<span class="sig-name descname"><span class="pre">data_url</span></span><a class="headerlink" href="#house_price_prediction.data_scripts.download_data.Data.data_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="house_price_prediction.data_scripts.download_data.Data.fetch_housing_data">
+<span class="sig-name descname"><span class="pre">fetch_housing_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#house_price_prediction.data_scripts.download_data.Data.fetch_housing_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>function to extract housing data from zip file
+and consequently store data in a folder.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="house_price_prediction.data_scripts.download_data.main">
+<span class="sig-prename descclassname"><span class="pre">house_price_prediction.data_scripts.download_data.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#house_price_prediction.data_scripts.download_data.main" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-house_price_prediction.data_scripts.explore_data">
+<span id="house-price-prediction-data-scripts-explore-data-module"></span><h2>house_price_prediction.data_scripts.explore_data module<a class="headerlink" href="#module-house_price_prediction.data_scripts.explore_data" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="house_price_prediction.data_scripts.explore_data.ExploreData">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">house_price_prediction.data_scripts.explore_data.</span></span><span class="sig-name descname"><span class="pre">ExploreData</span></span><a class="headerlink" href="#house_price_prediction.data_scripts.explore_data.ExploreData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="house_price_prediction.data_scripts.explore_data.ExploreData.correlation_matrix">
+<span class="sig-name descname"><span class="pre">correlation_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#house_price_prediction.data_scripts.explore_data.ExploreData.correlation_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>function returns correlation between features.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="house_price_prediction.data_scripts.explore_data.ExploreData.load_project_data">
+<span class="sig-name descname"><span class="pre">load_project_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#house_price_prediction.data_scripts.explore_data.ExploreData.load_project_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>function to load housing data in pandas dataframe.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="house_price_prediction.data_scripts.explore_data.ExploreData.scatter_plot">
+<span class="sig-name descname"><span class="pre">scatter_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#house_price_prediction.data_scripts.explore_data.ExploreData.scatter_plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>function returns scatter plot between the features.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-house_price_prediction.data_scripts.split_data">
+<span id="house-price-prediction-data-scripts-split-data-module"></span><h2>house_price_prediction.data_scripts.split_data module<a class="headerlink" href="#module-house_price_prediction.data_scripts.split_data" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="house_price_prediction.data_scripts.split_data.SplitData">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">house_price_prediction.data_scripts.split_data.</span></span><span class="sig-name descname"><span class="pre">SplitData</span></span><a class="headerlink" href="#house_price_prediction.data_scripts.split_data.SplitData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="house_price_prediction.data_scripts.split_data.SplitData.compare_props">
+<span class="sig-name descname"><span class="pre">compare_props</span></span><a class="headerlink" href="#house_price_prediction.data_scripts.split_data.SplitData.compare_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="house_price_prediction.data_scripts.split_data.SplitData.compare_splits">
+<span class="sig-name descname"><span class="pre">compare_splits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#house_price_prediction.data_scripts.split_data.SplitData.compare_splits" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="house_price_prediction.data_scripts.split_data.SplitData.data">
+<span class="sig-name descname"><span class="pre">data</span></span><a class="headerlink" href="#house_price_prediction.data_scripts.split_data.SplitData.data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="house_price_prediction.data_scripts.split_data.SplitData.feature_eng_obj">
+<span class="sig-name descname"><span class="pre">feature_eng_obj</span></span><a class="headerlink" href="#house_price_prediction.data_scripts.split_data.SplitData.feature_eng_obj" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="house_price_prediction.data_scripts.split_data.SplitData.load_project_data">
+<span class="sig-name descname"><span class="pre">load_project_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#house_price_prediction.data_scripts.split_data.SplitData.load_project_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>function to load housing data in pandas dataframe.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="house_price_prediction.data_scripts.split_data.SplitData.normal_split">
+<span class="sig-name descname"><span class="pre">normal_split</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">test_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#house_price_prediction.data_scripts.split_data.SplitData.normal_split" title="Permalink to this definition">¶</a></dt>
+<dd><p>function to perform normal train test split.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="house_price_prediction.data_scripts.split_data.SplitData.rand_test_set">
+<span class="sig-name descname"><span class="pre">rand_test_set</span></span><a class="headerlink" href="#house_price_prediction.data_scripts.split_data.SplitData.rand_test_set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="house_price_prediction.data_scripts.split_data.SplitData.rand_train_set">
+<span class="sig-name descname"><span class="pre">rand_train_set</span></span><a class="headerlink" href="#house_price_prediction.data_scripts.split_data.SplitData.rand_train_set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="house_price_prediction.data_scripts.split_data.SplitData.save_split_data">
+<span class="sig-name descname"><span class="pre">save_split_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#house_price_prediction.data_scripts.split_data.SplitData.save_split_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="house_price_prediction.data_scripts.split_data.SplitData.split_least_error">
+<span class="sig-name descname"><span class="pre">split_least_error</span></span><a class="headerlink" href="#house_price_prediction.data_scripts.split_data.SplitData.split_least_error" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="house_price_prediction.data_scripts.split_data.SplitData.startified_split">
+<span class="sig-name descname"><span class="pre">startified_split</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_splits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#house_price_prediction.data_scripts.split_data.SplitData.startified_split" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="house_price_prediction.data_scripts.split_data.SplitData.strat_test_set">
+<span class="sig-name descname"><span class="pre">strat_test_set</span></span><a class="headerlink" href="#house_price_prediction.data_scripts.split_data.SplitData.strat_test_set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="house_price_prediction.data_scripts.split_data.SplitData.strat_train_set">
+<span class="sig-name descname"><span class="pre">strat_train_set</span></span><a class="headerlink" href="#house_price_prediction.data_scripts.split_data.SplitData.strat_train_set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-house_price_prediction.data_scripts">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-house_price_prediction.data_scripts" title="Permalink to this heading">¶</a></h2>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">housing_price_prediction</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Omkar Chavan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/house_price_prediction.data_scripts.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

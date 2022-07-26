@@ -1,0 +1,56 @@
+2022-07-18 14:06:03,742 DEBUG - Creating split data object.
+2022-07-18 14:06:03,743 DEBUG - loading project data.
+2022-07-18 14:06:03,776 DEBUG - Successfully created binning feature.
+2022-07-18 14:06:03,776 DEBUG - performing train test split
+2022-07-18 14:06:03,779 DEBUG - performing train test split
+2022-07-18 14:06:03,794 INFO - stratified is the method with least splitting error.
+2022-07-18 14:44:11,044 DEBUG - Creating split data object.
+2022-07-18 14:44:11,044 DEBUG - loading project data.
+2022-07-18 14:44:11,073 DEBUG - Successfully created binning feature.
+2022-07-18 14:44:11,073 DEBUG - performing normal train test split
+2022-07-18 14:44:11,076 DEBUG - performing stratified train test split
+2022-07-18 14:45:42,705 DEBUG - Creating split data object.
+2022-07-18 14:45:42,705 DEBUG - loading project data.
+2022-07-18 14:45:42,728 DEBUG - Successfully created binning feature.
+2022-07-18 14:45:42,728 DEBUG - performing normal train test split
+2022-07-18 14:45:42,730 DEBUG - performing stratified train test split
+2022-07-18 14:45:42,737 DEBUG - calculating the proportion.
+2022-07-18 14:45:42,738 DEBUG - calculating the proportion.
+2022-07-18 14:45:42,739 DEBUG - calculating the proportion.
+2022-07-18 14:45:42,742 INFO - stratified is the method with least splitting error.
+2022-07-18 18:45:52,960 DEBUG - Creating split data object.
+2022-07-18 18:45:52,961 DEBUG - loading project data.
+2022-07-18 18:45:52,982 DEBUG - Successfully created binning feature.
+2022-07-18 18:45:52,982 DEBUG - performing normal train test split
+2022-07-18 18:45:52,985 DEBUG - performing stratified train test split
+2022-07-18 18:45:52,996 DEBUG - calculating the proportion.
+2022-07-18 18:45:52,997 DEBUG - calculating the proportion.
+2022-07-18 18:45:52,998 DEBUG - calculating the proportion.
+2022-07-18 18:45:53,001 INFO - stratified is the method with least splitting error.
+2022-07-18 18:56:07,141 DEBUG - Creating split data object.
+2022-07-18 18:56:07,142 DEBUG - loading project data.
+2022-07-18 18:56:07,169 DEBUG - Successfully created binning feature.
+2022-07-18 18:56:07,169 DEBUG - performing normal train test split
+2022-07-18 18:56:07,171 DEBUG - performing stratified train test split
+2022-07-18 18:56:07,179 DEBUG - calculating the proportion.
+2022-07-18 18:56:07,180 DEBUG - calculating the proportion.
+2022-07-18 18:56:07,181 DEBUG - calculating the proportion.
+2022-07-18 18:56:07,184 INFO - stratified is the method with least splitting error.
+2022-07-18 19:01:55,015 DEBUG - Creating split data object.
+2022-07-18 19:01:55,015 DEBUG - loading project data.
+2022-07-18 19:01:55,035 DEBUG - Successfully created binning feature.
+2022-07-18 19:01:55,035 DEBUG - performing normal train test split
+2022-07-18 19:01:55,037 DEBUG - performing stratified train test split
+2022-07-18 19:01:55,045 DEBUG - calculating the proportion.
+2022-07-18 19:01:55,046 DEBUG - calculating the proportion.
+2022-07-18 19:01:55,046 DEBUG - calculating the proportion.
+2022-07-18 19:01:55,049 INFO - stratified is the method with least splitting error.
+2022-07-18 21:32:39,108 DEBUG - Creating split data object.
+2022-07-18 21:32:39,109 DEBUG - loading project data.
+2022-07-18 21:32:39,129 DEBUG - Successfully created binning feature.
+2022-07-18 21:32:39,129 DEBUG - performing normal train test split
+2022-07-18 21:32:39,131 DEBUG - performing stratified train test split
+2022-07-18 21:32:39,139 DEBUG - calculating the proportion.
+2022-07-18 21:32:39,140 DEBUG - calculating the proportion.
+2022-07-18 21:32:39,141 DEBUG - calculating the proportion.
+2022-07-18 21:32:39,144 INFO - stratified is the method with least splitting error.

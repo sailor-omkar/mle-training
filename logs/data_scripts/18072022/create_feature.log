@@ -1,0 +1,36 @@
+2022-07-18 14:45:48,091 DEBUG - fitting the imputer over the data.
+2022-07-18 14:45:48,108 DEBUG - successfully created an imputer.
+2022-07-18 14:45:48,108 DEBUG - imputing the numerical data.
+2022-07-18 14:45:48,111 DEBUG - calculating the ratio.
+2022-07-18 14:45:48,112 DEBUG - calculating the ratio.
+2022-07-18 14:45:48,112 DEBUG - calculating the ratio.
+2022-07-18 18:46:04,078 DEBUG - fitting the imputer over the data.
+2022-07-18 18:46:04,095 DEBUG - successfully created an imputer.
+2022-07-18 18:46:04,095 DEBUG - imputing the numerical data.
+2022-07-18 18:46:04,098 DEBUG - calculating the ratio.
+2022-07-18 18:46:04,099 DEBUG - calculating the ratio.
+2022-07-18 18:46:04,099 DEBUG - calculating the ratio.
+2022-07-18 18:57:57,944 DEBUG - fitting the imputer over the data.
+2022-07-18 18:57:57,967 DEBUG - successfully created an imputer.
+2022-07-18 18:57:57,967 DEBUG - imputing the numerical data.
+2022-07-18 18:57:57,969 DEBUG - calculating the ratio.
+2022-07-18 18:57:57,970 DEBUG - calculating the ratio.
+2022-07-18 18:57:57,971 DEBUG - calculating the ratio.
+2022-07-18 19:02:00,142 DEBUG - fitting the imputer over the data.
+2022-07-18 19:02:00,159 DEBUG - successfully created an imputer.
+2022-07-18 19:02:00,159 DEBUG - imputing the numerical data.
+2022-07-18 19:02:00,162 DEBUG - calculating the ratio.
+2022-07-18 19:02:00,163 DEBUG - calculating the ratio.
+2022-07-18 19:02:00,163 DEBUG - calculating the ratio.
+2022-07-18 21:36:52,076 DEBUG - fitting the imputer over the data.
+2022-07-18 21:36:52,094 DEBUG - successfully created an imputer.
+2022-07-18 21:36:52,094 DEBUG - imputing the numerical data.
+2022-07-18 21:36:52,097 DEBUG - calculating the ratio.
+2022-07-18 21:36:52,099 DEBUG - calculating the ratio.
+2022-07-18 21:36:52,099 DEBUG - calculating the ratio.
+2022-07-18 21:37:57,142 DEBUG - fitting the imputer over the data.
+2022-07-18 21:37:57,156 DEBUG - successfully created an imputer.
+2022-07-18 21:37:57,157 DEBUG - imputing the numerical data.
+2022-07-18 21:37:57,161 DEBUG - calculating the ratio.
+2022-07-18 21:37:57,161 DEBUG - calculating the ratio.
+2022-07-18 21:37:57,162 DEBUG - calculating the ratio.
